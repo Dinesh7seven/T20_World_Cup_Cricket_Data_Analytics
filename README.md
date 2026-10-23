@@ -42,13 +42,13 @@ T20_World_Cup_Cricket_Data_Analytics/
 │   └── bowling_summary.csv
 │
 ├── 03_Python_Analysis/
-│   └── Python analysis scripts or notebooks
+│   └── Python analysis notebooks
 │
 ├── 04_SQL/
 │   └── SQL analysis queries
 │
 ├── 05_Power_BI/
-│   └── Power BI reports and dashboard documentation
+│   └── Dashboard documentation
 │
 └── README.md
 ```
