@@ -48,10 +48,14 @@ T20_World_Cup_Cricket_Data_Analytics/
 │   └── SQL analysis queries
 │
 ├── 05_Power_BI/
-│   └── Dashboard documentation
+│   ├── Dashboard_Quick_Guide.txt
+│   ├── DAX_and_Report_Specification.txt
+│   ├── T20_Cricket_Analytics_Dashboard.html
+│   └── README.txt
+│  
 │
-└── README.md
-```
+├── README.md
+└── .gitignore
 
 *Adjust the folder structure to match the files actually included in this repository.*
 
