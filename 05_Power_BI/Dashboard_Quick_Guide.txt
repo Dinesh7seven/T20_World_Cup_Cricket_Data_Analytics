@@ -1,0 +1,49 @@
+T20 CRICKET ANALYTICS — QUICK POWER BI FINISH GUIDE
+
+IMPORTANT DATA LABEL
+The uploaded summaries contain 223 batters and 451 bowlers. They should not yet be described as official Men's T20 World Cup 2024 totals. Validate the source files first. Until then, use the report title:
+"T20 Cricket Player Performance Analysis"
+
+REPORT PAGE 1 — OVERVIEW
+Top row: four Card visuals:
+- Total Runs
+- Total Wickets
+- Total Batters
+- Total Bowlers
+
+Bottom row:
+- Clustered bar chart: Top 10 Run Scorers
+  Y-axis: batting_summary[batter]
+  X-axis: batting_summary[runs]
+  Visual filter on batter: Top N, Top 10, By value = runs, Apply filter.
+  Sort by runs descending.
+- Clustered bar chart: Top 10 Wicket Takers
+  Y-axis: bowling_summary[bowler]
+  X-axis: bowling_summary[wickets]
+  Visual filter on bowler: Top N, Top 10, By value = wickets, Apply filter.
+  Sort by wickets descending.
+
+REPORT PAGE 2 — BATTING ANALYSIS
+- Bar chart: Top batters by runs
+- Column/bar chart: strike_rate by batter (use a minimum balls-faced filter such as 50 if appropriate for the intended dataset)
+- Table: batter, runs, balls_faced, fours, sixes, strike_rate
+- Card visuals: Total Fours, Total Sixes, Boundary Runs, Average Strike Rate
+
+REPORT PAGE 3 — BOWLING ANALYSIS
+- Bar chart: wickets by bowler (Top 10 filter)
+- Bar chart: economy by bowler (consider filtering to bowlers with a reasonable number of legal balls)
+- Table: bowler, matches, wickets, runs_conceded, legal_balls, economy, bowling_average
+- Card visuals: Total Wickets, Total Runs Conceded, Total Bowlers, Overall Economy
+
+FORMAT
+1. View > Themes > Browse for themes; choose T20_Cricket_Theme.json.
+2. Keep page backgrounds light, visual titles concise, and use consistent spacing.
+3. Format Overall Economy as Decimal number with 2 decimal places.
+4. Save as T20_World_Cup_Analytics.pbix.
+5. Rename the page tabs to Overview, Batting Analysis, and Bowling Analysis.
+
+DATA MODEL
+Keep batting_summary and bowling_summary as separate tables for this summary-level report. Do not merge or append them. No relationship is required for these visuals.
+
+CHECK BEFORE PRESENTING
+The uploaded CSVs have 223 batting rows and 451 bowling rows. The summary totals are 10,400 runs and 2,694 wickets. These values are not validated as Men's T20 World Cup 2024-only totals, so do not claim that they are official tournament totals until the raw-source scope is verified.

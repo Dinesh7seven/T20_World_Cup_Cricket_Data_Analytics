@@ -1,0 +1,44 @@
+POWER BI DAX MEASURES
+======================
+
+Create these with Modeling > New measure. If you already created a measure, do not create it twice.
+
+BATTTING (table: batting_summary)
+Total Runs = SUM(batting_summary[runs])
+Total Batters = DISTINCTCOUNT(batting_summary[batter])
+Average Strike Rate = AVERAGE(batting_summary[strike_rate])
+Total Fours = SUM(batting_summary[fours])
+Total Sixes = SUM(batting_summary[sixes])
+Boundary Runs = [Total Fours] * 4 + [Total Sixes] * 6
+
+BOWLING (table: bowling_summary)
+Total Wickets = SUM(bowling_summary[wickets])
+Total Bowlers = DISTINCTCOUNT(bowling_summary[bowler])
+Total Runs Conceded = SUM(bowling_summary[runs_conceded])
+Total Legal Balls = SUM(bowling_summary[legal_balls])
+Overall Economy = DIVIDE([Total Runs Conceded] * 6, [Total Legal Balls], 0)
+
+Format Average Strike Rate and Overall Economy as Decimal number, 2 decimal places.
+
+REPORT PAGE 1: Overview
+- Four Card visuals: Total Runs, Total Wickets, Total Batters, Total Bowlers
+- Clustered bar chart: Y-axis batter, X-axis runs; visual-level batter filter Top N = 10, By value runs
+- Clustered bar chart: Y-axis bowler, X-axis wickets; visual-level bowler filter Top N = 10, By value wickets
+
+REPORT PAGE 2: Batting Analysis
+- Cards: Total Runs, Average Strike Rate, Total Fours, Total Sixes
+- Bar chart: batter by runs, Top N = 10
+- Bar chart: batter by strike_rate (interpret alongside balls_faced)
+- Table: batter, runs, balls_faced, fours, sixes, strike_rate
+
+REPORT PAGE 3: Bowling Analysis
+- Cards: Total Wickets, Total Runs Conceded, Overall Economy, Total Bowlers
+- Bar chart: bowler by wickets, Top N = 10
+- Bar chart: bowler by economy; consider filtering legal_balls >= 60
+- Table: bowler, matches, wickets, runs_conceded, legal_balls, economy, bowling_average
+
+MODEL
+Keep batting_summary and bowling_summary as separate tables. Do not merge or append these summary-level tables. No relationship is required for these visuals.
+
+DATA QUALITY
+The supplied files contain 223 batter records and 451 bowler records. Validate source scope before describing totals as official Men's T20 World Cup 2024 statistics.
